@@ -7,3 +7,5 @@ class Bookmark(models.Model):
     url = models.URLField('URL', unique=True)
     name = models.CharField(max_length=200)
     notes = models.TextField(blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    last_modified = models.DateTimeField(auto_now=True)
