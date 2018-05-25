@@ -1,14 +1,14 @@
 <h1>Bookmarks</h1>
 
 {% if bookmarks %}
-<h4>Bookmarks:</h4>
+<h4>Shared Bookmarks:</h4>
     <ol>
         {% for bookmark in bookmarks %}
             <li><a href="{{ bookmark.url }}"/> {{ bookmark.name }}</a></li>
         {% endfor %}
     </ol>   
 {% else %}
-<p>Yes, we have no bookmarks</p>
+<p>We have no bookmarks</p>
 {% endif %}
 
 
@@ -20,7 +20,7 @@
         {% endfor %}
     </ol>   
 {% else %}
-<p>Yes, we have no personal bookmarks</p>
+<p>We have no personal bookmarks</p>
 {% endif %}
 
 
