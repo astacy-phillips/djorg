@@ -11,6 +11,7 @@ gunicorn = "*"
 dj-database-url = "*"
 whitenoise = "*"
 djangorestframework = "*"
+django-tagging = "*"
 
 [dev-packages]
 

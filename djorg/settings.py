@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'bookmarks',
     'notes',
     'rest_framework',
+    'tagging',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
