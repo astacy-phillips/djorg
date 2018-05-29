@@ -19,4 +19,9 @@ class NoteViewSet(viewsets.ModelViewSet):
     serializer_class = NoteSerializer
     queryset = Note.objects.all()
 
-    # def get_queryset(self):
+    def get_queryset(self):
+        user = self.request.user
+        if user.is_anonymous:
+            return Note.objects.none()
+        else:
+            return Note.objects.filter(user=user)
