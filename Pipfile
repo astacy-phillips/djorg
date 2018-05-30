@@ -12,6 +12,7 @@ dj-database-url = "*"
 whitenoise = "*"
 djangorestframework = "*"
 django-tagging = "*"
+graphene-django = "*"
 
 [dev-packages]
 

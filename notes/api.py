@@ -1,5 +1,6 @@
 from rest_framework import serializers, viewsets
 from .models import Note
+from tagging.models import Tag, TaggedItem
 
 class NoteSerializer(serializers.HyperlinkedModelSerializer):
 
@@ -9,6 +10,7 @@ class NoteSerializer(serializers.HyperlinkedModelSerializer):
 
         note = Note.objects.create(user=user, **validated_data)
         return note
+
 
     class Meta:
         model = Note

@@ -3,6 +3,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from tagging.registry import register
 
+
 # Create your models here.
 class Note(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid4, editable=False)
@@ -15,7 +16,6 @@ class Note(models.Model):
 
     # def __str__(self):
     #     return self.title
-    
 register(Note)
     # Stretch goals:
     # Tags/Categories
