@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 import os
 import dj_database_url
 from decouple import config
+from corsheaders.defaults import default_methods
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -40,6 +41,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'graphene_django',
     'tagging',
+    'corsheaders',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -50,10 +52,12 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    # 'django.middleware.csrf.CsrfViewMiddleware',
+    # 'corsheaders.middleware.CorsPostCsrfMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -146,3 +150,16 @@ REST_FRAMEWORK = {
 GRAPHENE = {
     'SCHEMA': 'notes.schema.schema' # dir.filename.varname
 }
+
+# CORS
+CORS_ORIGIN_WHITELIST = (
+    'localhost:3000',
+    '127.0.0.1:9000'
+)
+
+CORS_ALLOW_METHODS = default_methods
+
+CSRF_TRUSTED_ORIGINS = (
+    'localhost:3000',
+    '127.0.0.1:9000',
+)

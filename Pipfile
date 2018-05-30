@@ -13,6 +13,7 @@ whitenoise = "*"
 djangorestframework = "*"
 django-tagging = "*"
 graphene-django = "*"
+django-cors-headers = "*"
 
 [dev-packages]
 
