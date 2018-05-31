@@ -2,6 +2,7 @@ from django.conf import settings
 from graphene_django import DjangoObjectType
 import graphene
 from .models import Note as NoteModel
+# from django.views.decorators.csrf import requires_csrf_token
 
 class Note(DjangoObjectType):
     
@@ -14,6 +15,7 @@ class Note(DjangoObjectType):
 class Query(graphene.ObjectType):
     notes = graphene.List(Note)
 
+    # @requires_csrf_token
     def resolve_notes(self, info):
         """Decide which notes to return"""
 

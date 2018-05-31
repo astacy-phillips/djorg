@@ -1,7 +1,7 @@
 from uuid import uuid4
 from django.db import models
 from django.contrib.auth.models import User
-from tagging.registry import register
+# from tagging.registry import register
 
 
 # Create your models here.
@@ -16,7 +16,9 @@ class Note(models.Model):
 
     # def __str__(self):
     #     return self.title
-register(Note)
+    
+# register(Note)
+
     # Stretch goals:
     # Tags/Categories
     # Sharing notes between users
