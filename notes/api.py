@@ -23,6 +23,8 @@ class NoteViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self):
         user = self.request.user
+        #import pdb; pdb.set_trace()
+
         if user.is_anonymous:
             return Note.objects.none()
         else:

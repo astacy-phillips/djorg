@@ -14,8 +14,10 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include, re_path
 from django.views.generic import TemplateView
+from django.views.decorators.csrf import csrf_exempt
+from rest_framework.authtoken import views
 
 from rest_framework import routers
 from notes.api import NoteViewSet
@@ -26,9 +28,10 @@ router = routers.DefaultRouter()
 router.register(r'notes', NoteViewSet)
 
 urlpatterns = [
-    path('graphql/', GraphQLView.as_view(graphiql=True)),
+    path('graphql/', csrf_exempt(GraphQLView.as_view(graphiql=True))),
     path('', TemplateView.as_view(template_name='djorg_base.html')),
     path('bookmarks/', include('bookmarks.urls')),
     path('api/', include(router.urls)),
     path('admin/', admin.site.urls),
+    re_path(r'^api-token-auth/', views.obtain_auth_token),
 ]
